@@ -1,6 +1,9 @@
-import React from 'react'
+import React, {useContext} from 'react'
+import {Context} from './context'
 
-export default function TodoItem({title, id, completed, handleCheck, handledDelete}) {
+export default function TodoItem({title, id, completed}) {
+
+  const {handleCheck, handledDelete} = useContext(Context)
   return (
     <li className={completed?"todo completed":"todo"}>
       <label>

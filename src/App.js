@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import TodoList from "./TodoList";
+import {Context} from './context'
+
 
 export default function App() {
   const [todos, addTodo] = useState([
@@ -43,6 +45,9 @@ export default function App() {
     addTodo(todos.filter(todo=> todo.id !== id))
   
   return (
+    <Context.Provider value = {{
+      handleCheck, handledDelete
+    }}>
     <div className="container">
       <h1>Todo app</h1>
 
@@ -57,9 +62,8 @@ export default function App() {
       </div>
 
       <TodoList 
-      handleCheck = {handleCheck}
-      handledDelete = {handledDelete}
       todos={todos} />
     </div>
+    </Context.Provider>
   );
 }

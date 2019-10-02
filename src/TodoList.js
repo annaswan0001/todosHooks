@@ -6,8 +6,6 @@ export default function TodoList({todos,  handleCheck, handledDelete}) {
     <ul>
       {todos.map(item => <TodoItem
        key={item.id}
-       handleCheck = {handleCheck}
-       handledDelete = {handledDelete}
         {...item} />)}
     </ul>
   )
